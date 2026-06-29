@@ -3,7 +3,7 @@ const jwt= require('jsonwebtoken');
 async function authArtist(req, res, next) {
     const token = req.cookies.token;
     if(!token){
-        return res.authArtist.status(401).json({ message: 'Unauthorized' });
+        return res.status(401).json({ message: 'Unauthorized' });
     }
     try{
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
@@ -20,7 +20,7 @@ async function authArtist(req, res, next) {
 async function authUser(req, res, next) {
     const token = req.cookies.token;
     if(!token){
-        return res.authUser.status(401).json({ message: 'Unauthorized' });
+        return res.status(401).json({ message: 'Unauthorized' });
     }
     try{
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
